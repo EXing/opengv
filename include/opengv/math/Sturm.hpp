@@ -112,6 +112,7 @@ public:
   virtual ~Sturm();
 
   void findRoots2( std::vector<double> & roots, double eps_x = 0.001, double eps_val = 0.001 );
+  void findRoots3( std::vector<double> & roots, double lb = -1, double ub = 1, double eps_x = 0.001, double eps_val = 0.001 );
   /**
    * \brief Finds the roots of the polynomial.
    * \return An array with the real roots of the polynomial.
