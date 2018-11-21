@@ -185,7 +185,7 @@ opengv::math::Sturm::Sturm( const std::vector<double> & p ) :
 
 opengv::math::Sturm::~Sturm() {};
 
-void opengv::math::Sturm::findRoots3( std::vector<double> & roots, double lb = -1, double ub = 1, double eps_x = 0.001, double eps_val = 0.001 )
+void opengv::math::Sturm::findRoots3( std::vector<double> & roots, double lb, double ub, double eps_x, double eps_val )
 {
     std::list<Bracket::Ptr> stack;
     stack.push_back(Bracket::Ptr(new Bracket(lb,ub)));
