@@ -5,8 +5,8 @@
  * If you are only interested in using the library under Matlab, now there is a precompiled mex-library for 64-bit systems available. You can download it from:
  *
 \verbatim
-Windows: https://dl.dropboxusercontent.com/u/23966023/opengv/opengv.mexw64
-Mac OSX: https://dl.dropboxusercontent.com/u/23966023/opengv/opengv.mexmaci64
+Windows: http://laurentkneip.github.io/publications/opengv.mexw64
+Mac OSX: http://laurentkneip.github.io/publications/opengv.mexmaci64
 \endverbatim
  *
  * These versions have been added around March 2016, so please be aware that later additions may not be included in this distribution. You can go immediately to \ref page_matlab "Use under Matlab" to receive further instructions on the Matlab interface.
@@ -202,7 +202,20 @@ mex -I../include -I../EigenIncludePath -L../build/lib -lopengv opengv.cpp -cxx
  *
  * \section sec_installation_7 Installing the python wrappers
  *
- * The compliation of the Python wrappers can be enabled by setting the option BUILD_PYTHON to ON. Note that the python wrappers depend additionally on boost, and that the wrapper currently only allows access to the central methods.
+ * The Python wrappers depend on the pybind11 library, which is included as a git submodule.
+ * To get it, run
+ \verbatim
+git submodule update --init --recursive
+\endverbatim
+ * With that done, the compliation of the Python wrappers can be enabled by setting the option BUILD_PYTHON to ON.
+ * The especific version of Python to target can be set using the option PYBIND11_PYTHON_VERSION.
+ * For example,
+\verbatim
+cmake ../opengv
+  -DBUILD_PYTHON=ON
+  -DPYBIND11_PYTHON_VERSION=3.6
+\endverbatim
+ * Note that the python wrappers currently only allow access to the central methods.
  *
  * \section sec_installation_8 Using the OpenGV inside your cmake c++ project
  *
